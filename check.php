@@ -31,13 +31,13 @@
     $datajson =  json_encode($data);    //格式化数组数据为json
 
     if ($filecz==true) {    //首次上传文件修改
-        $fileput = file_put_contents ("./ZmlsZQ==/$base64de".'.php', "$datajson"); //写入数组到文件
+        $fileput = file_put_contents ("./ZmlsZA=/$base64de".'.php', "$datajson"); //写入数组到文件
         $oldname = "/volume1/web/owncloud/$base64de";   //旧名字（首次上传名）
         $newname = "/volume1/web/owncloud/$dname.zip";  //新名字（自动根据时间戳生成）
         rename($oldname,$newname);    //修改名字
     }
 
-    $fileget = file_get_contents ("./ZmlsZQ==/$base64de".'.php');  //读取现存数据
+    $fileget = file_get_contents ("./ZmlsZA=/$base64de".'.php');  //读取现存数据
 
     $datajsonde = json_decode($fileget);    //解json现存数据
 
@@ -57,7 +57,7 @@
         $oldname = "/volume1/web/owncloud/$filename"; //旧名字（现存数据读取）
         $newname = "/volume1/web/owncloud/$dname.zip";  //新名字（自动根据时间戳生成）
         rename($oldname,$newname);   //重新命名文件以更新链接
-        $fileput = file_put_contents ("./ZmlsZQ==/$base64de".'.php', "$datajson");     //写入数据以便下次读取
+        $fileput = file_put_contents ("./ZmlsZA=/$base64de".'.php', "$datajson");     //写入数据以便下次读取
         //header("Refresh:0");    //自动刷新以不动声色下载
         echo 'ok';
         echo '<script>'; 
